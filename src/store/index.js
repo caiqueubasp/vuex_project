@@ -24,5 +24,26 @@ export default createStore({
     },
   },
   actions: {},
-  modules: {},
+  getters: {
+    fullName(state) {
+      return `${state.user.name} ${state.user.second_name}`;
+    },
+  },
+
+  modules: {
+    users: {
+      state: () => ({
+        first_name: "Abacate",
+      }),
+      mutations: {},
+      actions: {},
+      getters: {},
+    },
+    carrinho: {
+      state: {},
+      mutations: {},
+      actions: {},
+      getters: {},
+    },
+  },
 });

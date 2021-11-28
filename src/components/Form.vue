@@ -12,12 +12,33 @@
 
     <br />
     <button @click="changeData">Enviar</button>
+
+    <br /><br /><br />
+
+    <p><b>Nome Completo: </b> {{ fullName }}</p>
+    <br />
+    <p><b>Idade: </b> {{ user.old }}</p>
+    <br />
+    <p><b>Email: </b> {{ user.email }}</p>
+    <br /><br /><br />
+    <span>Usando modules</span>
+    <p>Primeiro nome: {{ $store.state.users.first_name }}</p>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+
 export default {
   name: "Form",
+  computed: {
+    ...mapGetters(["fullName"]),
+    ...mapState({
+      user: (state) => state.user,
+    }),
+    ...mapActions(),
+    ...mapMutations(),
+  },
   components: {},
   methods: {
     changeData() {
